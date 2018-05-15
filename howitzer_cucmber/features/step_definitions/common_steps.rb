@@ -23,9 +23,7 @@ When 'I fill form on sign up page with new data' do
 end
 
 When 'I submit sign up form on sign up page' do
-  # sleep 10
   SignUpPage.on { submit_form }
-  sleep 5
 end
 
 When /I confirm sing up from (.+) email/ do |email|
@@ -49,7 +47,7 @@ Then 'I should not be logged in the system' do
 end
 
 Then /I should see following text on (.+) page:/ do |page, text1|
-  page.on { expect(text).to include(text1) }
+  page.on {is_expected.to have_register_content_element}
 end
 
 

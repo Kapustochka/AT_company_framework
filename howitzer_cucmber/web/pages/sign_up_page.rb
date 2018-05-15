@@ -2,6 +2,7 @@ class SignUpPage < Howitzer::Web::Page
   path '/account/registration.html'
   validate :title, /\AРегистрация.*\z/
 
+  element :register_content, :xpath, '//*[text()="Подтвердите регистрацию"]'
   element :job_checkbox, :xpath, '//label[@for="job"]'
   element :news_checkbox, '#get-unews + label'
   element :email_input,  '#form-reg-user #LoginForm_email'
