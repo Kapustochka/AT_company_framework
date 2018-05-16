@@ -18,7 +18,7 @@ module SignUpSteps
   ####################################
 
   step 'I click sign up menu item on home page' do
-    HomePage.on { sign_up_btn_element.click}
+    HomePage.on { sign_up_btn_element.click }
   end
 
   step 'I fill form on sign up page with new data' do
