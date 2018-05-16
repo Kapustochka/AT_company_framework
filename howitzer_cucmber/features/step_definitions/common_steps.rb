@@ -10,16 +10,18 @@ end
 #              ACTIONS             #
 ####################################
 
-When /I click (.+?) menu item on (.+) page/ do |text, page|
-  page.on { sign_up_btn_element.click}
+When /I click sign up menu item on (.+) page/ do |page|
+  page.on { sign_up_btn_element.click }
 end
 
 When 'I fill form on sign up page with new data' do
   @user = build(:user)
-  SignUpPage.on { fill_form(
-    email: out(:@user).email,
-    password: out(:@user).password,
-    ) }
+  SignUpPage.on {
+    fill_form(
+      email: out(:@user).email,
+      password: out(:@user).password
+    )
+  }
 end
 
 When 'I submit sign up form on sign up page' do
@@ -46,10 +48,9 @@ Then 'I should not be logged in the system' do
   HomePage.on { is_expected.to be_not_authenticated }
 end
 
-Then /I should see following text on (.+) page:/ do |page, text1|
-  page.on {is_expected.to have_register_content_element}
+Then /I should see following text on (.+) page:/ do |page, text|
+  page.on { is_expected.to have_register_content_element(text) }
 end
-
 
 Then /I should receive (.+) email/ do |email|
   email.as_email_class.find_by_recipient(@user.email)
