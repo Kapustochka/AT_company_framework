@@ -24,14 +24,16 @@ RSpec.feature 'Signup' do
   scenario 'user can sign up with correct credentials' do
     SignUpPage.open
     user = build(:user)
-    SignUpPage.on {
+    SignUpPage.on do
       fill_form(
         email: user.email,
         password: user.password
       )
-    }
+    end
     SignUpPage.on { submit_form }
-    ConfirmationInstructionEmail.find_by_recipient(user.email).confirm_my_account
+    ConfirmationInstructionEmail
+      .find_by_recipient(user.email)
+      .confirm_my_account
     HomePage.on { is_expected.to be_authenticated }
   end
 end
