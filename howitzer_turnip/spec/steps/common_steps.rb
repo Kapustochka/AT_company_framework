@@ -23,12 +23,12 @@ module SignUpSteps
 
   step 'I fill form on sign up page with new data' do
     self.user = build(:user)
-    SignUpPage.on {
+    SignUpPage.on do
       fill_form(
         email: out(:@user).email,
         password: out(:@user).password
       )
-    }
+    end
   end
 
   step 'I submit sign up form on sign up page' do
@@ -36,7 +36,9 @@ module SignUpSteps
   end
 
   step 'I confirm sing up from confirmation instruction email' do
-    ConfirmationInstructionEmail.find_by_recipient(@user.email).confirm_my_account
+    ConfirmationInstructionEmail
+      .find_by_recipient(@user.email)
+      .confirm_my_account
   end
 
   ####################################
@@ -56,7 +58,9 @@ module SignUpSteps
   end
 
   step 'I should see info on sign up page that account was successfully confirmed' do
-    SignUpPage.on { is_expected.to have_register_content_element('Подтвердите регистрацию') }
+    SignUpPage.on do
+      is_expected.to have_register_content_element('Подтвердите регистрацию')
+    end
   end
 
   step 'I should receive confirmation instruction email' do
