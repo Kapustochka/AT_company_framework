@@ -7,7 +7,7 @@ addons:
 rvm:
   - 2.4.0
 
-install: bundle install
+# install: bundle install
 
 # script: ./scripts/run-tests.sh
 
