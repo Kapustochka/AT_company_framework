@@ -10,7 +10,7 @@ rvm:
 # install: bundle install
 
 # script: ./scripts/run-tests.sh
-
+# awdad
 jobs:
   include:
     - stage: cucumber
