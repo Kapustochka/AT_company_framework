@@ -1,0 +1,21 @@
+language: ruby
+dist: trusty
+sudo: required
+addons:
+  chrome: stable
+
+rvm:
+  - 2.4.0
+
+# install: bundle install
+
+# script: ./scripts/run-tests.sh
+# awdad
+jobs:
+  include:
+    - stage: cucumber
+    script: ./scripts/cucumber.sh
+    - stage: turnip
+    script: ./scripts/turnip.sh
+    - stage: rspec
+    script: ./scripts/rspec.sh
