@@ -4,6 +4,7 @@ FactoryBot.define do
     password { Howitzer.app_test_pass }
     name { 'maxim-user' }
     last_name { 'maxim-userlastname' }
+
     trait :default do
       initialize_with { User.default || User.new }
     end
