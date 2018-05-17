@@ -10,12 +10,12 @@ rvm:
 # install: bundle install
 
 # script: ./scripts/run-tests.sh
-# awdad
+# awdads
 jobs:
   include:
-    - stage: cucumber
+  - stage: cucumber
     script: ./scripts/cucumber.sh
-    - stage: turnip
+  - stage: turnip
     script: ./scripts/turnip.sh
-    - stage: rspec
+  - stage: rspec
     script: ./scripts/rspec.sh
